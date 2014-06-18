@@ -737,6 +737,7 @@
     <ClCompile Include="RecordingSystemStreamer.cpp" />
     <ClCompile Include="RevertibleConfigLoader.cpp" />
     <ClCompile Include="RichPresence.cpp" />
+    <ClCompile Include="ScriptBind_Aircraft.cpp" />
     <ClCompile Include="ScriptBind_ProtectedBinds.cpp" />
     <ClCompile Include="ShotDebug.cpp" />
     <ClCompile Include="SprintStamina.cpp" />
@@ -1322,6 +1323,7 @@
     <ClInclude Include="RecordingSystemServerForwarder.h" />
     <ClInclude Include="RevertibleConfigLoader.h" />
     <ClInclude Include="RichPresence.h" />
+    <ClInclude Include="ScriptBind_Aircraft.h" />
     <ClInclude Include="ScriptBind_ProtectedBinds.h" />
     <ClInclude Include="ShotDebug.h" />
     <ClInclude Include="SprintStamina.h" />

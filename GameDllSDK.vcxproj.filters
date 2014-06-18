@@ -298,6 +298,9 @@
     <Filter Include="XboxOneLive">
       <UniqueIdentifier>{7cbc742f-f8ad-4d23-b1b3-9ce923689158}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CustomScriptBinds">
+      <UniqueIdentifier>{94eaa7fd-d7e1-41fd-8014-a1920b9b1233}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicEventListener.cpp">
@@ -2019,6 +2022,9 @@
       <Filter>Multiplayer\Network</Filter>
     </ClCompile>
     <ClCompile Include="StdAfx.h" />
+    <ClCompile Include="ScriptBind_Aircraft.cpp">
+      <Filter>CustomScriptBinds</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicEventListener.h">
@@ -3819,6 +3825,9 @@
     </ClInclude>
     <ClInclude Include="Network\MatchMakingUtils.h">
       <Filter>Multiplayer\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptBind_Aircraft.h">
+      <Filter>CustomScriptBinds</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

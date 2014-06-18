@@ -72,6 +72,10 @@ Crytek Source File.
 #include "CornerSmoother.h"
 #include <IHardwareMouse.h>
 
+//Tataru
+#include "ScriptBind_Aircraft.h"
+//Tataru
+
 #ifdef USE_LAPTOPUTIL
 #include "LaptopUtil.h"
 #endif
@@ -1280,6 +1284,10 @@ bool CGame::Init(IGameFramework *pFramework)
   CVehicleClient *pVehicleClient = new CVehicleClient();
   pVehicleClient->Init();
   g_pGame->GetIGameFramework()->GetIVehicleSystem()->RegisterVehicleClient(pVehicleClient);
+
+	//Tataru
+	CCustomInput *mCCustomInput = new CCustomInput;
+	//Tataru
 
 	InlineInitializationProcessing("CGame::Init RegisterVehicleClient");
 
@@ -4249,6 +4257,10 @@ void CGame::InitScriptBinds()
 	m_pScriptBindTowerSearchLight = new CScriptBind_TowerSearchLight(m_pFramework->GetISystem());
 	m_pScriptBindProtected = new CScriptBind_ProtectedBinds( m_pFramework->GetISystem() );
 	m_pScriptBindLightningArc = new CScriptBind_LightningArc(m_pFramework->GetISystem());
+
+	//Tataru
+	CScriptBind_Aircraft *pScriptBind_Aircraft = new CScriptBind_Aircraft(m_pFramework->GetISystem());
+	//Tataru
 	
 	ICVar* pEnableAI = gEnv->pConsole->GetCVar("sv_AISystem");
 	if(!gEnv->bMultiplayer || (pEnableAI && pEnableAI->GetIVal()))

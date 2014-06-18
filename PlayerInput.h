@@ -142,6 +142,9 @@ private:
 	bool CanMove() const;
 	bool CanCrouch() const;
 
+	//Tataru
+	bool OnActionplayersemicolon(EntityId entityId, const ActionId& actionId, int activationMode, float value);
+	//Tataru
 	bool OnActionMoveForward(EntityId entityId, const ActionId& actionId, int activationMode, float value);
 	bool OnActionMoveBack(EntityId entityId, const ActionId& actionId, int activationMode, float value);
 	bool OnActionMoveLeft(EntityId entityId, const ActionId& actionId, int activationMode, float value);

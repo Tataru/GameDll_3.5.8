@@ -56,6 +56,10 @@ History:
 #include "UI/UIManager.h"
 #include "UI/UIInput.h"
 
+//Tataru
+extern const char *playerKeyPressVar;
+//Tataru
+
 CPlayerInput::CPlayerInput( CPlayer * pPlayer ) : 
 	m_pPlayer(pPlayer), 
 	m_actions(0), 
@@ -112,6 +116,9 @@ CPlayerInput::CPlayerInput( CPlayer * pPlayer ) :
 	#define ADD_HANDLER(action, func) m_actionHandler.AddHandler(actions.action, &CPlayerInput::func)
 		const CGameActions& actions = g_pGame->Actions();
 
+		//Tataru
+		ADD_HANDLER(playersemicolon, OnActionplayersemicolon);
+		//Tataru
 		ADD_HANDLER(moveforward, OnActionMoveForward);
 		ADD_HANDLER(moveback, OnActionMoveBack);
 		ADD_HANDLER(moveleft, OnActionMoveLeft);
@@ -1172,6 +1179,22 @@ void CPlayerInput::SerializeSaveGame( TSerialize ser )
 	}
 }
 
+//Tataru
+bool CPlayerInput::OnActionplayersemicolon(EntityId entityId, const ActionId& actionId, int activationMode, float value)
+{
+	if (activationMode == eAAM_OnPress)
+	{
+		playerKeyPressVar = "semicolon";
+	}
+	if(activationMode == eAAM_OnRelease)
+	{
+		playerKeyPressVar = "";
+	}
+
+	return false;
+}
+//Tataru
+
 bool CPlayerInput::OnActionMoveForward(EntityId entityId, const ActionId& actionId, int activationMode, float value)
 {
 	bool bClearDeltaMovement = false;
@@ -1277,6 +1300,16 @@ bool CPlayerInput::OnActionMoveLeft(EntityId entityId, const ActionId& actionId,
 
 bool CPlayerInput::OnActionMoveRight(EntityId entityId, const ActionId& actionId, int activationMode, float value)
 {
+	//Tataru
+	if (activationMode == eAAM_OnPress)
+	{
+		playerKeyPressVar = "d";
+	}
+	if(activationMode == eAAM_OnRelease)
+	{
+		playerKeyPressVar = "";
+	}
+	//Tataru
 	bool bClearDeltaMovement = false;
 	if (CanMove() || (activationMode == eAAM_OnRelease))
 	{
@@ -1683,6 +1716,16 @@ bool CPlayerInput::OnActionAttackRightTrigger(EntityId entityId, const ActionId&
 
 bool CPlayerInput::OnActionUse(EntityId entityId, const ActionId& actionId, int activationMode, float value)
 {
+	//Tataru
+	if (activationMode == eAAM_OnPress)
+	{
+		playerKeyPressVar = "f";
+	}
+	if(activationMode == eAAM_OnRelease)
+	{
+		playerKeyPressVar = "";
+	}
+	//Tataru
 	bool filterOut = true;
 	IVehicle* pVehicle = m_pPlayer->GetLinkedVehicle();
 
